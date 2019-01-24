@@ -1,7 +1,7 @@
 /*Globals test expect */
 
-import MyStyledComponent from './my-styled-component'
-import renderer from 'react-test-renderer'
+import MyStyledComponent from './my-styled-component';
+import renderer from 'react-test-renderer';
 
 test ('Navbar snapshot',() => {
     const component = renderer.create(<MyStyledComponent />)

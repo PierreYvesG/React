@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default class Helloworld extends React.component {
 
@@ -12,4 +12,3 @@ export default class Helloworld extends React.component {
     }
 }
 
-export default HelloWorld
