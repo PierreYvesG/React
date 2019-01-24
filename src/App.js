@@ -8,10 +8,9 @@ import MyList from './components/my-list';
 import MyForm from './components/my-form';
 import MyStyledComponent from './components/my-styled-component';
 import NewLink from './components/my-linked-component';
-
-
-
-
+import counter from './redux/store1';
+import { rootReducer } from './redux/reducer';
+import Appp from './app.js';
 
 
 class App extends Component {
@@ -43,7 +42,10 @@ class App extends Component {
           <MyForm />
           <MyStyledComponent />
           <NewLink />
-
+          <Appp />
+          
+          
+         
         </header>
       </div>
     );

@@ -1,22 +1,39 @@
-import React from 'react' 
-import { HashRouter } from 'react-router-dom'
-import { Route, Switch, Redirect } from 'react-router'
-import { Clock, MyStyledComponent, My404Page } from './components'
+import React from 'react';
+import { addProduct} from './redux/actions';
+import { connect } from 'react-redux';
 
-export default class App extends React.Component {
+class Appp extends React.Component {
+
+    componentDidMount() {
+        // toute les 2 sec, on dispatch une nouvelle action dans le store 
+        setInterval(()=> {
+            this.props.dispatch(addProduct(`My product #${Date.now()}`, Math.random()*10|0))
+        },2000)
+    }
 
     render() {
-        <HashRouter>
-            <Switch>
-
-                <Route path='/clock' exact component={Clock} />
-                <Route path='/styled' exact component={MyStyledComponent} />
-
-                <Redirect from='/oldstyle' to='styled' />
-
-                <Route component={My404Page} />
-                
-            </Switch>
-        </HashRouter>
+        // On crée une liste à partir des éléments présent dans le  tableau des produits
+        const items = this.props.products.map((p, i) => {
+            return <li key={i}>{p.name}</li>
+        })
+        return (
+            <ul>
+                {items}
+            </ul>
+        ) 
     }
 }
+
+//Cette fonction permet de selectionner les éléments qui nous interesse dans le state 
+// et de les exposer en tant que props sur notre composant 
+
+const mapStateToProps = state => {
+    return {
+        products: state.products
+    }
+}
+
+// On emballe notre composant dans un H.O.C. (higher order component) 
+// ce qui nous permet de récupérer les données sur le store 
+
+export default connect(mapStateToProps)(Appp)
