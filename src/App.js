@@ -3,6 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 import Clock from './components/clock';
 import Counter from './components/counter';
+import PropsExample from './components/props-example';
+import MyList from './components/my-list';
+import MyForm from './components/my-form';
+import MyStyledComponent from './components/my-styled-component';
+import NewLink from './components/my-linked-component';
+
+
+
+
 
 
 class App extends Component {
@@ -26,6 +35,15 @@ class App extends Component {
           <Clock />
           <Counter max={5} />
           <Counter max={10} />
+          <PropsExample text="Bonjour React" />
+          <MyList>
+            <li>Item 1</li>
+            <li>Item 2</li>
+          </MyList>
+          <MyForm />
+          <MyStyledComponent />
+          <NewLink />
+
         </header>
       </div>
     );
@@ -33,4 +51,6 @@ class App extends Component {
 }
 
 export default App;
+
+
 
